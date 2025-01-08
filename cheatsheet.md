@@ -32,6 +32,16 @@ You can then [set breakpoints](#breakpoints) and run a program with it's argumen
 run [...args]
 ```
 
+Once you're done debugging you can kill the running program with
+```sh
+kill
+```
+
+And you can then quit gdb with
+```sh
+quit
+```
+
 ## Breakpoints
 
 Creates a breakpoint, this breakpoint is a point in the code at which your program will stop and give you [control over execution](#continuing-and-stepping).
