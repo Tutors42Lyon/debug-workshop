@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:31:31 by cdomet-d          #+#    #+#             */
-/*   Updated: 2025/01/07 17:59:26 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2025/01/08 10:22:56 by lcottet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,13 @@ int RPN::doOp(char op)
 
 void RPN::evaluateExpression(std::string expr)
 {
-	for (std::string::iterator it = expr.begin(); it != expr.end(); ++it) {
-		if (*it == ' ')
+	for (size_t i = 0;i < expr.length(); ++i) {
+		if (expr[i] == ' ')
 			continue;
-		else if (isOperator(*it)) {
-			doOp(*it);
-		} else if (isDigit(*it)) {
-			rpn.push(*it + '0');
+		else if (isOperator(expr[i])) {
+			doOp(expr[i]);
+		} else if (isDigit(expr[i])) {
+			rpn.push(expr[i] + '0');
 		} else {
 			throw UnexpectedToken();
 		}
