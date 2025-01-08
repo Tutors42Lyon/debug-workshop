@@ -10,3 +10,7 @@ The default level is 2.
 - Level 3 includes extra information, such as all the macro definitions present in the program. Some debuggers support macro expansion when you use -g3.
 
 in [GCC documentation on debugging flags](https://gcc.gnu.org/onlinedocs/gcc/Debugging-Options.html)
+
+# Valgrind documentation
+- [Command line flags](https://www.cs.cmu.edu/afs/cs/academic/class/15213-s03/labs-save/L4/share/doc/valgrind/manual.html#flags)
+
