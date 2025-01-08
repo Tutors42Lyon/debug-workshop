@@ -2,14 +2,14 @@
 marp: true
 theme: uncover
 header: Atelier debug
-footer: ![width:6em](assets/tutor.svg)
+footer: ![width:5em](assets/tutor.svg)
 
 style: |
     section {
         font-family: monospace;
     }
     footer {
-        text-align: left;
+        text-align: right;
     }
     section.slide li {
     font-size: 0.65em;
