@@ -1,6 +1,6 @@
-- [How does gcc work ?](https://gcc-newbies-guide.readthedocs.io/en/latest/debugging.html)
 
-# On using -g, -g1, -g2, -g3...
+# About compiler flags
+On using -g, -g1, -g2, -g3...
 Request debugging information and also use level to specify how much information. 
 
 The default level is 2.

@@ -36,7 +36,6 @@ gdb, valgrind & cie
 --- 
 <!-- _class: slide -->
 # 0) Introduction
-- Programmer c dur
 - Pourquoi Valgrind & GDB ?
     - Pertinent pour votre cursus: natif a Linux et concu pour le C 
     - S'adapte a tous les IDE
@@ -52,18 +51,21 @@ gdb, valgrind & cie
 - Se base sur les informations de debug generee par le flag -g[1, 2, 3]
 - ⚠️ Les flags de debug sont relatifs au **compilateur**
 
-    `gcc -Werror -Wextra -Wall -g3 *.c`
 --- 
 <!-- _class: slide -->
-# 1) Valgrind
-a. Compiler pour le debug
-- Optimisent ou ajoutent des informations au binaire
+# 1) Valgrind / Compiler pour le debug
+- Les flags de compilateurs peuvent ajouter des informations au binaire ou en retirer
+- ⚠️ Valgrind et les debuggers **ralentissent** et **alourdissent** les programmes.
 
 ```
-|   POIDS    |  DATE     |  HEURE    | NOM DU PROGRAMME
-Avec -g3
-    175664  |    Jan  8     |   12:49 |  btc
-Sans -g3
-80248 Jan  8 12:51 btc
+| FLAG   | POIDS  | BINAIRE |
+-----------------------------
+| -g3    | 175664 |  btc    |
+| -g0    | 80248  |  btc    |
+| -0fast | 47496  |  btc    |
 ```
+
+--- 
+<!-- _class: slide -->
+# 1) Valgrind / Tools
 
