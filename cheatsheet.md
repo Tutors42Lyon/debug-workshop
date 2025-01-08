@@ -34,9 +34,9 @@ run [...args]
 
 ## Breakpoints
 
-Creates a breakpoint, this breakpoint is a point in the code at which execution will stop and allow you to take control of the execution.
+Creates a breakpoint, this breakpoint is a point in the code at which your program will stop and give you [control over execution](#continuing-and-stepping).
 
-`<where>` can be a function name or a line in the code (`filename:line`)
+`<where>` can be a function name or a line in your code (`filename:line`)
 
 ```sh
 break <where>
@@ -82,26 +82,30 @@ continue
 
 You can print and edit variable content at any point in the code allowing you to check if your logic is right or not.
 
-`<expressions>` can be a variable name or any 'valid' c expression, this can be usefull to cast or dereference pointers.
+`<expressions>` can be a variable name or any 'valid' c expression, this can be useful to cast or dereference pointers.
 
 ```sh
 print <expression>
 set <name>=<value>
-display <expressopn>	# will print <expression> at each step in the code.
-info locals				# prints all local variables for the current scope
+display <expression>  # will print <expression> at each step in the code.
+info locals           # prints all local variables for the current frame
 ```
 
 ## Stack
 
 These commands are mostly usefull in case of a crash or unexpected infinite loop, they can be tricky to understand!
 
+A stack [frame](#frame) is a point in a function call, navigating to one allows you to [print variables](#variables) from that point.
+
+Taking a look at the [backtrace](#backtrace) allows you to know where in the code your function is called and with which parameters. **It can give you a general idea of the state of your program outside of the function you're debugging.**
+
 ### Backtrace
 
-Shows the backtrace for the current execution, it will show the history of function calls used to reach this state.
+Shows the backtrace for the current execution. The backtrace is the history of function calls (frames) used to reach this state.
 
-The optional argument `full` can be used to show all parameters for each function call.
+The optional argument `full` can be used to show all parameters and local variables for each function call.
 
-Each function call will be printed along with it's [frame](#frame) number.
+Each function call will be printed along with it's unique [frame](#frame) index.
 
 ```sh
 backtrace (full)
@@ -109,7 +113,9 @@ backtrace (full)
 
 ### Frame
 
-If you ever want to [print variables](#variables) from previous function call from a [backtrace](#backtrace), you can go back in the stack with frame.
+If you ever want to inspect previous function call from a [backtrace](#backtrace), you can go back to previous calls from the stack using this command by passing the desired frame index.
+
+Any [execution commands](#continuing-and-stepping) will still be executed from frame #0.
 
 ```sh
 frame <N>
