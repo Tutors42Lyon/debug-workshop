@@ -26,8 +26,9 @@ style: |
     }
 
 ---
-Les bases du debug
+# Les bases du debug
 gdb, valgrind & cie
+![width:8em](assets/gnu_my_beloved.gif)
 
 ---
 <!-- _class: slide -->
