@@ -107,7 +107,7 @@ gcc -Werror -Wextra -Wall -g3 | <= coucou !
  --q & --v                      | quiet et verbose, pour avoir plus ou moins d'informations
  --log-file="filename"          | redirige l'output de Valgrind dans un fichier
  --suppressions=<filename>      | permet d'ignorer les leaks provenant de certains appels de fonction
- --gdb-attach=yes               | après chaque message d'erreur, prompt à ouvrir GDB au point où l'erreur est intervenue. 
+ --vgdb=yes               | après chaque message d'erreur, prompt à ouvrir GDB au point où l'erreur est intervenue. 
                                 | Reprend l'exec où elle s'était arrêtée après la sortie de GDB
 ```
 
@@ -174,7 +174,7 @@ c. Les autres erreurs de Valgrind
     - Ralentir l'application et le système,
     - Causer des crashs et des comportements inattendus,
     - Permettre l'exploitation d'informations sensibles restées en mémoire
-- L'IT, c'est une histoire de scope: ce qui ne pose pas problème sur GNL sera sûrement un souci sur un Kernel ou une application Cloud utilisée par des milliers de personnes (voir: CrowdStrike crash)
+- L'IT, c'est une histoire de scope: ce qui ne pose pas problème sur GNL sera sûrement un souci sur un Kernel ou une application Cloud utilisée par des milliers de personnes.
 
 ---
 <!-- _class: slide -->
@@ -214,3 +214,10 @@ d. Les bases (DEMO avec GDB)
 - Contrôle de l'exécution
 - Inspection d'une frame
 - Backtrace
+---
+# Any Questions ? 
+![w:6em](assets/gdb.png) + ![w:6em](assets/val.png)
+
+==
+
+<3
