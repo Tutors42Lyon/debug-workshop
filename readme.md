@@ -69,3 +69,5 @@ Please keep in mind that this is meant as an _introduction_ to gdb and Valgrind,
 └── readme.md
 
 ```
+# Authors
+2025 - [@cdomet-d](https://github.com/cdomet-d) && [@Ofacy](https://github.com/Ofacy)
