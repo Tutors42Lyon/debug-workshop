@@ -28,6 +28,13 @@ Or you can run this command and replace the extension with the one you want:
 npx @marp-team/marp-cli@latest presentation.md --allow-local-files -o presentation-supports/presentation.<html|pdf|pptx> 
 ```
 
+## Want to contribute ? 
+You have read the sources, understood the slides, and you think something is missing ? You're probably right. 
+
+Please don't hesitate to **[contribute](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)** to the repo, taking care to follow the usual process described in the link.
+
+Please keep in mind that this is meant as an _introduction_ to gdb and Valgrind, but have at it if you want to !
+
 # Directory structure
 ```bash
 .
