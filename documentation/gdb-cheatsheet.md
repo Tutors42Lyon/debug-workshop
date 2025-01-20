@@ -10,6 +10,7 @@
 	- [Step](#stepping)
 	- [Next](#next)
 	- [Finish](#finish)
+	- [Return](#return)
 	- [Continue](#continue)
 - [Print and set variables](#variables)
 - [Stack](#stack)
@@ -80,6 +81,13 @@ If you think you're done debugging a function and want to go back one [stack](#s
 finish
 ```
 
+### Return
+
+You can also force a return value for a function. `return` skips the rest of the current function and allows you to specify what value it should return.
+```sh
+return <value>
+```
+
 ### Continue
 
 If you want to go back to normal execution and wait for another breakpoint to be reached, you can `continue`.
@@ -96,7 +104,7 @@ You can print and edit variable content at any point in the code allowing you to
 
 ```sh
 print <expression>
-set <name>=<value>
+set variable <name>=<value>
 display <expression>  # will print <expression> at each step in the code.
 info locals           # prints all local variables for the current frame
 ```
