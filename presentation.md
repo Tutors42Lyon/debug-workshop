@@ -39,8 +39,8 @@ Sommaire
     a. Compiler pour le debug (-g3 et ses amis)
     b. Command-line flags
     c. Lecture de l'output (backtrace, types de leaks et erreurs diverses)
-    d. Intégrer Valgrind à son workflow //TODO
-    d. De l'importance des erreurs Valgrind
+    d. Intégrer Valgrind à son workflow
+    e. De l'importance des erreurs Valgrind
 2. Debugger
     a. Quand utiliser un Debugger?
     b. OK mais c'est quoi?
@@ -75,7 +75,7 @@ valgrind ./btc inputs/input.txt | 0.47s |
 ```
 ---
 <!-- _class: slide -->
-1) Valgrind / Compiler pour le debug
+1) Valgrind / a. Compiler pour le debug
 
 - Les flags de debug sont relatifs au compilateur :
 
@@ -96,7 +96,7 @@ gcc -Werror -Wextra -Wall -g3 | <= coucou !
 
 ---
 <!-- _class: slide -->
-1) Valgrind / Command-line flags
+1) Valgrind / b. Command-line flags
 
 ```
 # El famoso:
@@ -109,7 +109,7 @@ gcc -Werror -Wextra -Wall -g3 | <= coucou !
  --q & --v                      | quiet et verbose, pour avoir plus ou moins d'informations
  --log-file="filename"          | redirige l'output de Valgrind dans un fichier
  --suppressions=<filename>      | permet d'ignorer les leaks provenant de certains appels de fonction
- --vgdb=yes               | après chaque message d'erreur, prompt à ouvrir GDB au point où l'erreur est intervenue. 
+ --vgdb=yes                     | après chaque message d'erreur, prompt à ouvrir GDB au point où l'erreur est intervenue. 
                                 | Reprend l'exec où elle s'était arrêtée après la sortie de GDB
 ```
 
@@ -117,7 +117,7 @@ gcc -Werror -Wextra -Wall -g3 | <= coucou !
 
 ---
 <!-- _class: slide -->
-1) Valgrind / Lecture de l'output
+1) Valgrind / c.0. Lecture de l'output
 a. La backtrace
 - Permet de suivre le cycle de vie de votre pointeur,
 - Voir où il récupère un retour de fonction ou est réalloué,
@@ -138,7 +138,7 @@ a. La backtrace
 
 ---
 <!-- _class: slide -->
-1) Valgrind / Lecture de l'output
+1) Valgrind / c.1. Lecture de l'output
 b. Les types de leak
 ```
 ==43274== LEAK SUMMARY:
@@ -159,24 +159,32 @@ b. Les types de leak
 
 ---
 <!-- _class: slide -->
-1) Valgrind / Lecture de l'output
+1) Valgrind / c.2. Lecture de l'output
 c. Les autres erreurs de Valgrind
 
-- Invalid read of size n: peut causer un segfault
-- Conditional jump or move depends on uninitialised value(s): le programme essaye d'évaluer une variable non-initialisée
-- Invalid free() : le pointeur ne peut pas être free (soit il l'a déjà été, soit il n'a pas été alloué sur la heap)
+- `Invalid read of size n`: peut causer un segfault
+- `Conditional jump or move depends on uninitialised value(s)`: le programme essaye d'évaluer une variable non-initialisée
+- `Invalid free()`: le pointeur ne peut pas être free (soit il l'a déjà été, soit il n'a pas été alloué sur la heap)
 
 ---
 <!-- _class: slide -->
-1) Valgrind / De l'importance des erreurs Valgrind
+1) Valgrind / d. Integrer Valgrind a son workflow
+
+- Marre de devoir se souvenir de tous les flags dont vous avez besoin pour Valgrind ? 
+- **Solution**: utiliser les outils a votre disposition !
+- Possible de creer une regle `make` pour vous faciliter la vie. 
+```make
+V_PARAMS:= valgrind --trace-children=yes --track-fds=yes --leak-check=full --suppressions=$(M_SUP) --show-leak-kinds=all -s
+run: all
+	$(V_PARAMS) ./$(NAME)
+``` 
+---
+<!-- _class: slide -->
+1) Valgrind / e. De l'importance des erreurs Valgrind
 
 - Si Valgrind remonte une erreur, c'est qu'elle peut causer un problème.
 - Un invalid read est un segfault qui a eu de la chance.
-- Un leak peut:
-    - Ralentir l'application et le système,
-    - Causer des crashs et des comportements inattendus,
-    - Permettre l'exploitation d'informations sensibles restées en mémoire
-- L'IT, c'est une histoire de scope: ce qui ne pose pas problème sur GNL sera sûrement un souci sur un Kernel ou une application Cloud utilisée par des milliers de personnes.
+- L'IT, c'est une histoire de scale: ce qui ne pose pas problème sur GNL sera sûrement un souci sur un Kernel ou une application Cloud utilisée par des milliers de personnes.
 
 ---
 <!-- _class: slide -->
