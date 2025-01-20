@@ -108,7 +108,7 @@ gcc -Werror -Wextra -Wall -g3 | <= coucou !
  --q & --v                      | quiet et verbose, pour avoir plus ou moins d'informations
  --log-file="filename"          | redirige l'output de Valgrind dans un fichier
  --suppressions=<filename>      | permet d'ignorer les leaks provenant de certains appels de fonction
- --vgdb=yes                     | après chaque message d'erreur, prompt à ouvrir GDB au point où l'erreur est intervenue. 
+ --vgdb=yes --vgdb-error=<n>    | après <n> message(s) d'erreur(s), ouvre GDB au point où l'erreur est intervenue. 
                                 | Reprend l'exec où elle s'était arrêtée après la sortie de GDB
 ```
 
