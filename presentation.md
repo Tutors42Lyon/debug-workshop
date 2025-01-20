@@ -13,7 +13,7 @@ style: |
         text-align: left;
     }
     section.slide li {
-        font-size: 0.65em;
+        font-size: 0.7em;
     }
     section.slide h1 {
         font-size: 0.8em;
@@ -46,7 +46,6 @@ Sommaire
     b. OK mais c'est quoi?
 	c. GDB: GNU Debugger
 	d. Démonstration & visualisation du workflow
-3. Conclusion
 
 ---
 <!-- _class: slide -->
@@ -201,11 +200,9 @@ a. Quand utiliser un debugger?
 2. Debugger
 b. OK mais c'est quoi?
 
-Fini les printf dans tous les sens!
-- Analyse de l'execution de son code
-
-Acces a la memoire d'un programme lors de son execution
-Controle sur l'execution de son programme
+- Analyse de l'execution de son code:
+- Acces a la memoire d'un programme
+- Controle sur l'execution du programme
 
 ---
 <!-- _class: slide -->
@@ -227,6 +224,7 @@ d. Les bases (DEMO avec GDB)
 - Contrôle de l'exécution
 - Inspection d'une frame
 - Backtrace
+
 ---
 # Any Questions ? 
 ![w:6em](assets/gdb.png) + ![w:6em](assets/val.png)
