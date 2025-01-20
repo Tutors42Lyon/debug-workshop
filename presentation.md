@@ -41,9 +41,11 @@ Sommaire
     c. Lecture de l'output (backtrace, types de leaks et erreurs diverses)
     d. Intégrer Valgrind à son workflow //TODO
     d. De l'importance des erreurs Valgrind
-2. GDB: GNU Debugger
-    a. Quand utiliser un debugger ?
-    b. Démonstration & visualisation du workflow
+2. Debugger
+    a. Quand utiliser un Debugger?
+    b. OK mais c'est quoi?
+	c. GDB: GNU Debugger
+	d. Démonstration & visualisation du workflow
 3. Conclusion
 
 ---
@@ -191,8 +193,11 @@ a. Quand utiliser un debugger?
 2) Debugger
 b. OK mais c'est quoi?
 
-- Un outil qui permet d'analyser l'exécution de son code
-- Fini les printf dans tous les sens!
+Fini les printf dans tous les sens!
+- Analyse de l'execution de son code
+
+Acces a la memoire d'un programme lors de son execution
+Controle sur l'execution de son programme
 
 ---
 <!-- _class: slide -->
