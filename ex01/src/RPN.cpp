@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:31:31 by cdomet-d          #+#    #+#             */
-/*   Updated: 2025/01/08 10:22:56 by lcottet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 10:19:35 by lcottet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ RPN &RPN::operator=(const RPN &comp)
 
 bool RPN::isOperator(char c)
 {
-	char op[5] = "+-*/";
+	char	op[5] = "+-*/";
+	uint8_t i;
 
-	for (uint8_t i = -1; op[i]; ++i) {
+	for (i = 0; op[i]; ++i) {
 		if (c == op[i])
 			return true;
 	}
@@ -52,8 +53,10 @@ bool RPN::isOperator(char c)
 }
 bool RPN::isDigit(char c)
 {
-	char digit[11] = "0123456789";
-	for (uint8_t i = -1; digit[i]; ++i) {
+	char 	digit[11] = "0123456789";
+	uint8_t i;
+
+	for (i = 0; digit[i]; ++i) {
 		if (c == digit[i])
 			return true;
 	}
